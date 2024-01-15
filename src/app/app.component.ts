@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CustomPipe } from './pipes/custom.pipe';
 
 @Component({
   selector: 'app-root',
@@ -70,18 +71,27 @@ içerik boş
 
           <!-- CUSTOM DİRECTİVE -->
 
-          <div *appCustomIf="true"> SELAMLAR    </div>
-       
-      
-
+          <div *appCustomIf="false"> SELAMLAR    </div>
+       <ul>
+        <li *appCustomFor="names;let name; let index = index ">{{name | lowercase}} - {{index | currency :'₺'}}</li>
+       </ul>
+      <p>{{isim | slice:3:7}}</p>
+<h1>{{tarih|date }}</h1>
 <button [ngClass]="myClass">BUTONDUR</button>
 
+<hr>
+<br>
 
+{{"fenerin maçı var." | custom:0:5}}
   `,
   // styleUrl: './app.component.css'
   styles: [".myClass{background-color:red;}"]
 })
 export class AppComponent {
+
+  constructor(private custom:CustomPipe){
+    console.log(custom.transform("asdlkasjhfkjahnc aknsckjlasnskasa",3,10));
+  }
   title = 'AngularProjectWithModule';
   src: string = "https://lh3.googleusercontent.com/a/ACg8ocK78hMmJPOjE4Dr4lyQd3-TtrOB9Fh0HFoj4lu8tAclb68=s288-c-no";
   sayfaUyarisi() {
@@ -95,6 +105,8 @@ export class AppComponent {
   isimler: string[] = ["Ferit", "Şeyma", "Şevval", "Tahir", "Naim"]
   class1: string = "btn btn-primary";
   class2: string = "btn btn-danger";
-  myClass: string = "myClass"
-
+  myClass: string = "myClass";
+  names : string[]= ["Ferit","Ali","Tahir","Naim"];
+  isim : string = "ferit simsek"
+  tarih : Date= new Date(2024,12,1);
 }
