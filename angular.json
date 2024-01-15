@@ -35,15 +35,9 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -109,6 +103,6 @@
     }
   },
   "cli": {
-    "analytics": "0c63a965-43f9-4ead-9b79-68df9cb7fd3d"
+    "analytics": "b1c7bd47-c06e-44f1-b00e-d0a38b421bd6"
   }
 }
